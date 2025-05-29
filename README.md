@@ -1,4 +1,4 @@
-# Poyecto_estructura_de_datos
+# Proyecto_estructura_de_datos
 #include <iostream>
 using namespace std;
 
