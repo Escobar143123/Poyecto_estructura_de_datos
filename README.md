@@ -27,7 +27,7 @@ void crearProceso(string estado, int prioridad) {
         cabeza = nuevo;
     } else {
         Proceso* aux = cabeza;
-        while (aux->siguiente != NULL) aux = aux->siguiente;
+        while (aux->siguiente != NULL) aux = aux->siguiente;  // Avanza hasta el último proceso
         aux->siguiente = nuevo;
     }
     cout << "Proceso creado con ID: " << nuevo->id << ", Estado: " << estado << endl;
