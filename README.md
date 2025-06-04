@@ -85,3 +85,69 @@ void menu() {
                     cout << "Proceso no encontrado.\n";
                     break;
                 }
+ while (true) {
+                    cout << "Nuevo estado:\n 1. listo\n 2. ejecutando\n 3. bloqueado\nSeleccione: ";
+                    cin >> estadoNum;
+                    estado = obtenerEstado(estadoNum);
+                    if (estado == "invalido") {
+                        cout << "ERROR, la opción que marcó no existe.\n";
+                    } else {
+                        break;
+                    }
+                }
+
+                cambiarEstado(id, estado);
+                break;
+
+            case 3:
+                cout << "ID del proceso: ";
+                cin >> id;
+                if (!idExiste(id)) {
+                    cout << "Proceso no encontrado.\n";
+                    break;
+                }
+                cout << "Cantidad de memoria a apilar: ";
+                cin >> cantidad;
+                usarMemoria(id, cantidad);
+                break;
+
+            case 4:
+                mostrarProcesos();
+                break;
+
+            case 5:
+                cout << "Saliendo del sistema...\n";
+                break;
+
+            case 6:
+                cout << "ID del proceso a eliminar: ";
+                cin >> id;
+                eliminarProceso(id);
+                break;
+
+            case 7:
+                liberarEspacioMemoria();
+                break;
+
+            case 8:
+                cout << "ID del proceso: ";
+                cin >> id;
+                if (!idExiste(id)) {
+                    cout << "Proceso no encontrado.\n";
+                    break;
+                }
+                cout << "Cantidad de memoria a desapilar: ";
+                cin >> cantidad;
+                quitarMemoria(id, cantidad);
+                break;
+
+            default:
+                cout << "Opción inválida.\n";
+        }
+    } while (opcion != 5);
+}
+
+int main() {
+    menu();
+    return 0;
+}
